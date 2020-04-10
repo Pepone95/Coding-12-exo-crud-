@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\about;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+// use Illuminate\Support\Facades\Redirect;
 
 class AboutController extends Controller
 {
@@ -25,7 +25,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        
+        return view('create.about');
     }
 
     /**
@@ -34,9 +34,14 @@ class AboutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $about=new About();
+        $about->titre2=request('titre2');
+        $about->description2=request('description2');
+        $about->img_about=request('img_about');
+        $about->save();
+        return redirect()->route('about');
     }
 
     /**
@@ -48,7 +53,7 @@ class AboutController extends Controller
     public function show(about $about)
     {
         $abouts = about::all();
-        return view('edit.aboutedit', compact('abouts'));
+        return view('backOffice.aboutedit', compact('abouts'));
     }
 
     /**
@@ -59,8 +64,8 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        $abouts = About::find($id);
-        return view('admin', compact('abouts'));
+        $abouts = about::find($id);
+        return view('edit.about', compact('abouts'));
     }
 
     /**
@@ -75,8 +80,9 @@ class AboutController extends Controller
         $about=About::find($id);
         $about->titre2=request('titre2');
         $about->description2=request('description2');
+        $about->img_about=request('img_about');
         $about->save();
-        return Redirect::to('/#about');
+        return redirect()->route('about');
     }
 
     /**
@@ -85,8 +91,9 @@ class AboutController extends Controller
      * @param  \App\about  $about
      * @return \Illuminate\Http\Response
      */
-    public function destroy(about $about)
+    public function destroy($id)
     {
-        //
+        About::find($id)->delete();
+        return redirect()->back();
     }
 }

@@ -19,9 +19,18 @@ Route::get('admin', function(){
     return view('layout.admin');
 });
 
+// 
+Route::get('/aboutedit', 'AboutController@show')->name('about');
+// About -> edit
 
-Route::get('/aboutedit', 'AboutController@show');
 Route::get('/aboutedit/{id}/edit', 'AboutController@edit');
 Route::post('/aboutedit/{id}/update', 'AboutController@update');
+
+// Create
+Route::get('/aboutedit/create', 'AboutController@create');
+Route::post('/aboutedit/store', 'AboutController@store');
+
+// delete
+Route::get('/aboutedit/{id}/destroy', 'AboutController@destroy');
 
 

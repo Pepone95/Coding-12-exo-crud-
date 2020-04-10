@@ -59,7 +59,7 @@ class TitreController extends Controller
     public function edit($id)
     {
         $titres=Titre::find($id);
-        return view('edit.aboutedit', compact('titres'));
+        return view('backOffice.aboutedit', compact('titres'));
     }
 
     /**
