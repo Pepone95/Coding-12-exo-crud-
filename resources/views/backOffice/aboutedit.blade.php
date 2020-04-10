@@ -3,7 +3,8 @@
 
 {{-- important --}}
   {{-- /aboutedit/{{$abouts->id}}/update --}}
-<h1 class="text-center">About Edit</h1>
+
+<h1 class="text-center">About EDIT</h1>
 <div class="text-center">
 <a href="/aboutedit/create" class="btn btn-warning">Create</a>
 </div>

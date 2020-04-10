@@ -10,7 +10,7 @@ $factory->define(About::class, function (Faker $faker) {
         'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
         'fashion', 'people', 'nature', 'sports', 'technics', 'transport'];
     return [
-        'img_about'=> $faker->imageUrl(500, 300, $faker->randomElement($cate)),
+        'img_about'=> $faker->imageUrl(450, 300, $faker->randomElement($cate)),
         'titre2' => $faker->name(),
         'description2' => $faker->text(),
     ];

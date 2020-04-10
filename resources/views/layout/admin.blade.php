@@ -10,7 +10,7 @@
 </head>
 <body>
     <header id="header">
-        <div class="container">
+        <div class="container d-flex justify-content-center">
       
           <div id="logo" class="pull-left">
             <a href="#hero"><img src="img/" alt="" title="" /></img></a>
@@ -19,13 +19,14 @@
           </div>     
           <!-- #nav-menu-container -->
       
- <nav id="nav-menu-container text-center">
+ <nav id="nav-menu-container ">
     <ul class="nav-menu">
         <li class="menu-active"></li>
           <li><a href="/">Home</a></li>
           <li><a href="/aboutedit">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="/servicesedit">Services</a></li>
+          <li><a href="/subscribeedit">Subscribe</a></li>
+          <li><a href="/portofolioedit">Portfolio</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#contact">Contact Us</a></li>
@@ -36,7 +37,7 @@
 </nav>
 </header>
 <div>
-{{-- <h1 class="text-center mt-5">Page Administration</h1> --}}
+ <h1 class="text-center mt-5 text-danger">Page Administration</h1> 
 </div>
 
 

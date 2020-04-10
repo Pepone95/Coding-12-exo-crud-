@@ -24,7 +24,7 @@ class PortofolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('create.portofolio');
     }
 
     /**
@@ -33,9 +33,14 @@ class PortofolioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $portofolio=new portofolio();
+        $portofolio->titre=request('titre');
+        $portofolio->description2=request('description2');
+        $portofolio->img_porto=request('img_porto');
+        $portofolio->save();
+        return redirect()->route('portofolios');
     }
 
     /**
@@ -46,7 +51,8 @@ class PortofolioController extends Controller
      */
     public function show(portofolio $portofolio)
     {
-        //
+        $portofolios = portofolio::all();
+        return view('backOffice.portofolioedit', compact('portofolios'));
     }
 
     /**
@@ -55,9 +61,10 @@ class PortofolioController extends Controller
      * @param  \App\portofolio  $portofolio
      * @return \Illuminate\Http\Response
      */
-    public function edit(portofolio $portofolio)
+    public function edit($id)
     {
-        //
+        $portofolios = portofolio::find($id);
+        return view('edit.portofolio', compact('portofolios'));
     }
 
     /**
@@ -67,9 +74,16 @@ class PortofolioController extends Controller
      * @param  \App\portofolio  $portofolio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, portofolio $portofolio)
+    public function update($id)
     {
-        //
+        $portofolios=portofolio::find($id);
+        // $portofolios->description=request('description');
+        $portofolios->img_porto=request('img_porto');
+        $portofolios->titre=request('titre');
+        $portofolios->description2=request('description2');
+        $portofolios->save();
+        return redirect()->route('portofolios');
+
     }
 
     /**
@@ -78,8 +92,9 @@ class PortofolioController extends Controller
      * @param  \App\portofolio  $portofolio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(portofolio $portofolio)
+    public function destroy($id)
     {
-        //
+        portofolio::find($id)->delete();
+        return redirect()->back();
     }
 }

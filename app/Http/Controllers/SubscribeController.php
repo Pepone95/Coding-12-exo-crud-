@@ -46,7 +46,8 @@ class SubscribeController extends Controller
      */
     public function show(subscribe $subscribe)
     {
-        //
+        $subscribes = subscribe::all();
+        return view('backOffice.subscribeedit', compact('subscribes'));
     }
 
     /**
@@ -55,9 +56,10 @@ class SubscribeController extends Controller
      * @param  \App\subscribe  $subscribe
      * @return \Illuminate\Http\Response
      */
-    public function edit(subscribe $subscribe)
+    public function edit($id)
     {
-        //
+        $subscribes =subscribe::find($id);
+        return view('edit.subscribe', compact('subscribes'));
     }
 
     /**
@@ -67,9 +69,13 @@ class SubscribeController extends Controller
      * @param  \App\subscribe  $subscribe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, subscribe $subscribe)
+    public function update($id)
     {
-        //
+        $subscribes=subscribe::find($id);
+        $subscribes->titre=request('titre');
+        $subscribes->description=request('description');
+        $subscribes->save();
+        return redirect()->route('subscribe');
     }
 
     /**
@@ -78,8 +84,8 @@ class SubscribeController extends Controller
      * @param  \App\subscribe  $subscribe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(subscribe $subscribe)
+    public function destroy()
     {
-        //
+        // 
     }
 }

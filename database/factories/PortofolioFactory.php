@@ -12,7 +12,7 @@ $factory->define(Portofolio::class, function (Faker $faker) {
     return [
 
         'titre'=> $faker->name(),
-        'description'=> $faker->sentence(25),
+        // 'description'=> $faker->sentence(25),
         'img_porto'=> $faker->imageUrl(450, 300, $faker->randomElement($cate)),
         'description2'=> $faker->sentence(),
     ];

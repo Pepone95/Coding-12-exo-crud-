@@ -25,7 +25,7 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        //
+        return view('create.services');
     }
 
     /**
@@ -34,9 +34,14 @@ class ServicesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $service = new Services();
+        $service->titre=request('titre');
+        $service->description=request('description');
+        $service->logo=request('logo');
+        $service->save();
+        return redirect()->route('services');
     }
 
     /**
@@ -47,7 +52,8 @@ class ServicesController extends Controller
      */
     public function show(services $services)
     {
-        //
+        $servicess = services::all();
+        return view('backOffice.servicesedit', compact('servicess'));
     }
 
     /**
@@ -56,9 +62,10 @@ class ServicesController extends Controller
      * @param  \App\services  $services
      * @return \Illuminate\Http\Response
      */
-    public function edit(services $services)
+    public function edit($id)
     {
-        //
+        $services = services::find($id);
+        return view('edit.services', compact('services'));
     }
 
     /**
@@ -68,9 +75,15 @@ class ServicesController extends Controller
      * @param  \App\services  $services
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, services $services)
+    public function update($id)
     {
-        //
+        $services=Services::find($id);
+        $services->titre=request('titre');
+        $services->description=request('description');
+        $services->logo=request('logo');
+        $services->save();
+        return redirect()->route('services');
+        
     }
 
     /**
@@ -79,8 +92,9 @@ class ServicesController extends Controller
      * @param  \App\services  $services
      * @return \Illuminate\Http\Response
      */
-    public function destroy(services $services)
+    public function destroy($id)
     {
-        //
+        Services::find($id)->delete();
+        return redirect()->back();
     }
 }
