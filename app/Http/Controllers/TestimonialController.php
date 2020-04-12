@@ -24,7 +24,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view('create.testimonial');
     }
 
     /**
@@ -33,9 +33,16 @@ class TestimonialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $testimonials=new testimonial();
+        $testimonials->name=request('name');
+        $testimonials->description=request('description');
+        $testimonials->img_profil=request('img_profil');
+        $testimonials->commentaire=request('commentaire');
+        $testimonials->save();
+        return redirect()->route('testimonials');
+
     }
 
     /**
@@ -44,9 +51,10 @@ class TestimonialController extends Controller
      * @param  \App\testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function show(testimonial $testimonial)
+    public function show()
     {
-        //
+        $testimonials = testimonial::all();
+        return view('backOffice.testimonialedit', compact('testimonials'));
     }
 
     /**
@@ -55,9 +63,10 @@ class TestimonialController extends Controller
      * @param  \App\testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function edit(testimonial $testimonial)
+    public function edit($id)
     {
-        //
+        $testimonials = testimonial::find($id);
+        return view('edit.testimonial', compact('testimonials'));
     }
 
     /**
@@ -67,9 +76,15 @@ class TestimonialController extends Controller
      * @param  \App\testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, testimonial $testimonial)
+    public function update($id)
     {
-        //
+        $testimonials=testimonial::find($id);
+        $testimonials->name=request('name');
+        $testimonials->description=request('description');
+        $testimonials->img_profil=request('img_profil');
+        $testimonials->commentaire=request('commentaire');
+        $testimonials->save();
+        return redirect()->route('testimonials');
     }
 
     /**
@@ -78,8 +93,9 @@ class TestimonialController extends Controller
      * @param  \App\testimonial  $testimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(testimonial $testimonial)
+    public function destroy($id)
     {
-        //
+        testimonial::find($id)->delete();
+        return redirect()->back();
     }
 }

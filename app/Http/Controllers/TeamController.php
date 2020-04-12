@@ -14,7 +14,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        // 
     }
 
     /**
@@ -24,7 +24,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('create.team');
     }
 
     /**
@@ -35,7 +35,12 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $teams=new team();
+        $teams->name=request('name');
+        $teams->description=request('description');
+        $teams->img_team=request('img_team');
+        $teams->save();
+        return redirect()->route('teams');
     }
 
     /**
@@ -46,7 +51,8 @@ class TeamController extends Controller
      */
     public function show(team $team)
     {
-        //
+        $teams = team::all();
+        return view('backOffice.teamedit', compact('teams'));
     }
 
     /**
@@ -55,9 +61,10 @@ class TeamController extends Controller
      * @param  \App\team  $team
      * @return \Illuminate\Http\Response
      */
-    public function edit(team $team)
+    public function edit($id)
     {
-        //
+        $teams = team::find($id);
+        return view('edit.team', compact('teams'));
     }
 
     /**
@@ -67,9 +74,14 @@ class TeamController extends Controller
      * @param  \App\team  $team
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, team $team)
+    public function update($id)
     {
-        //
+        $teams=team::find($id);
+        $teams->name=request('name');
+        $teams->description=request('description');
+        $teams->img_team=request('img_team');
+        $teams->save();
+        return redirect()->route('teams');
     }
 
     /**
@@ -78,8 +90,9 @@ class TeamController extends Controller
      * @param  \App\team  $team
      * @return \Illuminate\Http\Response
      */
-    public function destroy(team $team)
+    public function destroy($id)
     {
-        //
+        team::find($id)->delete();
+        return redirect()->back();
     }
 }

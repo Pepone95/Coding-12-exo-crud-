@@ -63,3 +63,38 @@ Route::get('/portofolioedit/create', 'PortofolioController@create');
 Route::post('/portofolioedit/store', 'PortofolioController@store');
 // Delete 
 Route::get('/portofolioedit/{id}/destroy','PortofolioController@destroy');
+
+// *******************************************
+
+// Section Testimonials
+
+Route::get('/testimonialedit', 'TestimonialController@show')->name('testimonials');
+
+// Testimonials -> Edit
+Route::get('/testimonialedit/{id}/edit', 'TestimonialController@edit');
+Route::post('/testimonialedit/{id}/update', 'TestimonialController@update');
+
+// Testimonials -> Create
+Route::get('/testimonialedit/create', 'TestimonialController@create');
+Route::post('/testimonialedit/store', 'TestimonialController@store');
+
+// Testimonials -> Delete
+Route::get('/testimonialedit/{id}/destroy', 'TestimonialController@destroy');
+
+// ***************************************************
+
+// Section Team
+Route::get('/teamedit', 'TeamController@show')->name('teams');
+
+// Team Create
+Route::get('/teamedit/create', 'TeamController@create');
+Route::post('/teamedit/store', 'TeamController@store');
+
+// Team -> Edit
+Route::get('/teamedit/{id}/edit', 'TeamController@edit');
+Route::post('/teamedit/{id}/update', 'TeamController@update');
+
+//  Team -> Delete
+Route::get('/teamedit/{id}/destroy', 'TeamController@destroy');
+
+
