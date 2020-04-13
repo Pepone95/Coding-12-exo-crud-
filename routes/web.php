@@ -97,4 +97,24 @@ Route::post('/teamedit/{id}/update', 'TeamController@update');
 //  Team -> Delete
 Route::get('/teamedit/{id}/destroy', 'TeamController@destroy');
 
+// ********************************************************
+
+// Section Contact
+
+Route::get('/contactedit', 'ContactController@show')->name('contacts');
+
+// Contact -> Create
+Route::get('/contactedit/create', 'ContactController@create');
+Route::post('/contactedit/store', 'ContactController@store');
+
+
+// Contact -> Edit
+Route::get('/contactedit/{id}/edit', 'ContactController@edit');
+Route::post('/contactedit/{id}/update', 'ContactController@update');
+
+// Contact -> Delete 
+ 
+Route::get('/contactedit/{id}/destroy', 'ContactController@destroy');
+
+
 

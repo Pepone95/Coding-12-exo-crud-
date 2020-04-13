@@ -29,7 +29,7 @@
           <li><a href="/portofolioedit">Portfolio</a></li>
           <li><a href="/testimonialedit">Testimonials</a></li>
           <li><a href="/teamedit">Team</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="/contactedit">Contact Us</a></li>
               {{-- <li class="menu-has-children"><a href="">Drop Down</a>
                 <ul>
                   <li><a href="#">Drop Down 1</a></li> --}}
