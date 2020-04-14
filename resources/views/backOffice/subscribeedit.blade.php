@@ -3,7 +3,7 @@
 
 
     <h1 class="text-center">Subscribe EDIT</h1>
-    <div class="container mt-5 ">
+    <div class="container mt-5 bg-light">
       <div class="row">
         <div class="col-1">
           <p>ID:</p>

@@ -4,9 +4,11 @@
 
     <h1 class="text-center">Services EDIT</h1>
     <div class="text-center">
+      {{-- btn create --}}
       <a href="/servicesedit/create" class="btn btn-warning">Create</a>
     </div>
-    <div class="container mt-5 text-center">
+    {{-- *** --}}
+    <div class="container mt-5 text-center bg-light">
       <div class="row">
         <div class="col-1">
           <p>ID:</p>
@@ -27,7 +29,7 @@
     </div>
 
     @foreach ($servicess as $services)
-    <div class="container mt-2 ">
+    <div class="container mt-3">
       <div class="row">
         <div class="col-1">
           <div class="text-center">

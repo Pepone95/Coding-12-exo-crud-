@@ -6,7 +6,7 @@
     <div class="text-center">
       <a href="/testimonialedit/create" class="btn btn-warning">Create</a>
     </div>
-    <div class="container mt-5 text-center">
+    <div class="container mt-5 text-center bg-light">
       <div class="row">
         <div class="col-1">
           <p>ID:</p>

@@ -6,7 +6,8 @@
 
 <h1 class="text-center">Contact EDIT</h1>
 <div class="text-center">
-<a href="/contactedit/create" class="btn btn-warning">Create</a>
+  {{-- J'ai créer la Route etc mais pas besoin dans la section Contact.--}}
+{{-- <a href="/contactedit/create" class="btn btn-warning">Create</a> --}}
 </div>
   <div class="container mt-5 text-center bg-light">
     <div class="row">
@@ -30,7 +31,7 @@
 
   @foreach ($contacts as $contact)
   <div>
-  <div class="container mt-2 bg-light">
+  <div class="container mt-2">
     <div class="row">
       <div class="col-1">
         <div class="text-center">
